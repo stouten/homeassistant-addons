@@ -1,7 +1,7 @@
 {
     "name": "CalibreWebAutomated",
     "version": "0.1.0",
-    "slug": "calibre_web_automated",
+    "slug": "calibre-web-automated",
     "description": "Calibre-Web met automatische updates als Home Assistant add-on, gebaseerd op de officiële Docker image.",
     "arch": [
         "amd64",
