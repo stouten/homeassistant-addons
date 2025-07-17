@@ -1,28 +1,24 @@
 #!/bin/bash
+set -e
 
-# Read Home Assistant add-on configuration options from /data/options.json
-OPTIONS_FILE=/data/options.json
-CALIBRE_LIBRARY_PATH=$(jq -r '.calibre_library_path' "$OPTIONS_FILE")
-
-# Ensure the Calibre library path exists
-mkdir -p "$CALIBRE_LIBRARY_PATH"
-echo "Using Calibre library path: $CALIBRE_LIBRARY_PATH"
-
-# CWA needs these environment variables
-export PUID=1000
-export PGID=1000
-export TZ=UTC
+# Read configuration
+CONFIG_PATH=/data/options.json
+CALIBRE_LIBRARY_PATH=$(jq -r '.calibre_library_path' "$CONFIG_PATH")
+BOOK_INGEST_PATH=$(jq -r '.book_ingest_path' "$CONFIG_PATH")
 
 # Create required directories
-mkdir -p /config/calibre-web
-mkdir -p /config/processed_books
-mkdir -p /config/cwa-book-ingest
+mkdir -p "$CALIBRE_LIBRARY_PATH"
+mkdir -p "$BOOK_INGEST_PATH"
 
-# Set the library path for CWA
-export CALIBRE_LIBRARY_PATH="$CALIBRE_LIBRARY_PATH"
+echo "Calibre library path: $CALIBRE_LIBRARY_PATH"
+echo "Book ingest path: $BOOK_INGEST_PATH"
 
-# Start Calibre Web Automated using its own startup script
-cd /app/calibre-web-automated || { echo "Error: CWA directory not found!"; exit 1; }
+# Set environment variables for the container
+export PUID=1000
+export PGID=1000
+export TZ=Europe/Amsterdam
 
-# Execute the original CWA startup
-exec /app/calibre-web-automated/startup.sh
+# The Docker image has its own entrypoint, so we don't need to start anything manually
+# Just let the container run as intended
+echo "Starting Calibre Web Automated..."
+exec "$@"
