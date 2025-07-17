@@ -2,7 +2,7 @@
   "name": "CalibreWebAutomated",
   "version": "0.1.0",
   "slug": "calibre-web-automated",
-  "description": "Calibre-Web met automatische updates als Home Assistant add-on, gebaseerd op de officiële Docker image.",
+  "description": "Calibre-Web met automatische updates als Home Assistant add-on, gebaseerd op de officiële Docker image",
   "arch": [
     "amd64",
     "armhf",
@@ -25,5 +25,5 @@
   "schema": {
     "calibre_library_path": "str"
   },
-  "image": "crocodilestick/calibre-web-automated-{arch}"
+  "image": "crocodilestick/calibre-web-automated:latest"
 }
