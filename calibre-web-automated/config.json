@@ -1,8 +1,8 @@
 {
-  "name": "CalibreWebAutomated",
+  "name": "Calibre Web Automated",
   "version": "V3.0.4",
   "slug": "calibre-web-automated",
-  "description": "Calibre-Web met automatische updates als Home Assistant add-on, gebaseerd op de officiële Docker image",
+  "description": "Home Assistant add-on voor Calibre Web Automated, gebaseerd op de officiële multi-arch Docker image.",
   "arch": [
     "amd64",
     "armhf",
@@ -11,19 +11,31 @@
   ],
   "init": false,
   "ingress": true,
-  "ports": {},
-  "ports_description": {},
+  "ingress_port": 8083,
+  "ports": {
+    "8083/tcp": 8083
+  },
+  "ports_description": {
+    "8083/tcp": "Calibre Web Automated web interface"
+  },
   "startup": "application",
+  "environment": {
+    "PUID": "1000",
+    "PGID": "1000",
+    "TZ": "Europe/Amsterdam"
+  },
   "map": [
     "config:rw",
     "ssl:rw",
     "media:rw"
   ],
   "options": {
-    "calibre_library_path": "/config/calibre-library"
+    "calibre_library_path": "/calibre-library",
+    "book_ingest_path": "/cwa-book-ingest"
   },
   "schema": {
-    "calibre_library_path": "str"
+    "calibre_library_path": "str",
+    "book_ingest_path": "str"
   },
   "image": "docker.io/crocodilestick/calibre-web-automated"
 }
