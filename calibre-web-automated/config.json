@@ -25,5 +25,5 @@
   "schema": {
     "calibre_library_path": "str"
   },
-  "image": "crocodilestick/calibre-web-automated:latest"
+  "image": "ghcr.io/crocodilestick/calibre-web-automated:latest"
 }
