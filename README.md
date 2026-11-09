@@ -1,6 +1,6 @@
-# Home Assistant Add-ons & Integrations by Maarten
+# Home Assistant Add-ons by Maarten
 
-Home Assistant add-ons en custom integraties.
+Home Assistant add-ons van Maarten. Voor custom integraties zie [stouten/ha-biernet](https://github.com/stouten/ha-biernet).
 
 ## Add-ons
 
@@ -12,11 +12,9 @@ Voeg de repository toe via **Instellingen → Add-ons → Add-on store → ⋮ �
 
 ## Integraties
 
-| Integratie | Omschrijving |
-|---|---|
-| [Biernet](custom_components/biernet/) | Bieraanbiedingen van biernet.nl als sensor, gefilterd en gesorteerd op literprijs. Eén integratie-entry per zoekopdracht. |
-
-Voeg de repository toe via **Marketplace/HACS → Custom repositories**, category **Integration**, en installeer daarna de gewenste integratie.
+De Biernet-integratie (bieraanbiedingen van biernet.nl als sensor) is verhuisd naar
+zijn eigen repository: **[stouten/ha-biernet](https://github.com/stouten/ha-biernet)** —
+conform de Marketplace-regel "one integration per repository".
 
 ## Ondersteuning
 
